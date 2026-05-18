@@ -5,6 +5,7 @@ from core.prompts import PromptBuilder
 
 from core.services.llm_service import LLMService
 from core.services.research_service import ResearchService
+from core.schemas import QualityCheckResponse
 
 
 llm_service = LLMService()
@@ -64,12 +65,13 @@ class SocialAgentNodes:
             response=state["social_response"]
         )
 
-        result = llm_service.invoke(prompt)
-
-        qc = json.loads(result)
+        qc = llm_service.invoke_structured(
+            prompt=prompt,
+            schema=QualityCheckResponse
+        )
 
         return {
-            "quality_score": qc["score"],
-            "approved": qc["approved"],
-            "final_response": qc["improved_response"]
+            "quality_score": qc.score,
+            "approved": qc.approved,
+            "final_response": qc.improved_response
         }
