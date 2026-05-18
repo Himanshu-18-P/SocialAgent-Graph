@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.\\\\.venv\\\\Scripts\\\\python.exe -m pip install ipykernel)",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python.exe -m pip install ipykernel)",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python.exe -m ensurepip --upgrade)",
+      "PowerShell(uv add ipykernel)",
+      "PowerShell(uv pip install --python .\\\\.venv\\\\Scripts\\\\python.exe ipykernel)",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python.exe -c \"import ipykernel; print\\('ipykernel', ipykernel.__version__\\)\")",
+      "PowerShell(.\\\\.venv\\\\Scripts\\\\python.exe -m jupyter kernelspec list 2>&1)",
+      "Read(//c/Users/91865/AppData/Roaming/jupyter/kernels/socialagent-graph/**)"
+    ]
+  }
+}
